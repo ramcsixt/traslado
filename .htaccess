@@ -1,0 +1,21 @@
+# Customized error messages.
+ErrorDocument 404 /index.php
+# Set the default handler.
+DirectoryIndex index.php
+# Various rewrite rules.
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+</IfModule>
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 69.167.175.205
+deny from 69.73.145.91
+deny from 69.167.174.58
+deny from 107.180.41.45
+deny from 192.185.75.206
